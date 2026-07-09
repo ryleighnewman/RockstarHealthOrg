@@ -73,9 +73,17 @@ def header(active):
     links = "".join(
         f'<a href="{s}.html"{" aria-current=\"page\"" if s==active else ""}>{t}</a>'
         for s,t in NAV)
-    return ('<div class="site-header__pill">'
-            '<a class="brand" href="index.html"><img src="assets/rockstar-logo.png" alt="Rockstar Health"></a>'
-            f'<nav class="nav" aria-label="Primary">{links}</nav></div>')
+    return ('<div class="rh-header__pill">'
+            '<input id="rh-nav-toggle" class="rh-nav__cb" type="checkbox" aria-hidden="true">'
+            '<div class="rh-header__left">'
+              '<label for="rh-nav-toggle" class="rh-burger" aria-label="Toggle menu">'
+                '<span></span><span></span><span></span></label>'
+              f'<nav class="rh-nav" aria-label="Primary">{links}</nav>'
+            '</div>'
+            '<a class="rh-header__brand" href="index.html">'
+              '<img src="assets/rockstar-logo.png" alt="Rockstar Health"></a>'
+            '<div class="rh-header__spacer" aria-hidden="true"></div>'
+            '</div>')
 
 def footer():
     fg = open(f"{THEME}/sections/footer-group.json").read()
