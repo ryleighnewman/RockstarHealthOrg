@@ -3164,8 +3164,8 @@ a[href*="shopify.com"][aria-label="Shopify"] {
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.75rem 3rem;
-  padding: 2.25rem clamp(1.75rem, 6vw, 5.5rem) 1.85rem;
+  gap: 0.9rem 2.5rem;
+  padding: 1.4rem clamp(1.5rem, 3vw, 2.75rem) 1.15rem;
   background: rgb(255 255 255 / 0.05);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -3186,7 +3186,7 @@ a[href*="shopify.com"][aria-label="Shopify"] {
   font-size: 0.75rem !important;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  margin: 0 0 0.85rem !important;
+  margin: 0 0 0.55rem !important;
 }
 .rh-footer-links__list {
   list-style: none !important;
@@ -3194,7 +3194,7 @@ a[href*="shopify.com"][aria-label="Shopify"] {
   padding: 0 !important;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.45rem;
 }
 .rh-footer-links__list li {
   margin: 0 !important;
@@ -3214,12 +3214,17 @@ a[href*="shopify.com"][aria-label="Shopify"] {
 .rh-footer-links__list a:hover {
   color: rgb(var(--rh-accent-soft)) !important;
 }
+/* Copyright row (inline-styled div): tighten its spacing so the footer stays compact */
+.rh-footer-links > div:last-child {
+  margin-top: 0.7rem !important;
+  padding-top: 0.8rem !important;
+}
 @media (max-width: 600px) {
   .rh-footer-links {
     max-width: calc(100% - 1rem);
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem 1.5rem;
-    padding: 1.5rem 1.5rem 1.25rem;
+    gap: 1.1rem 1.25rem;
+    padding: 1.2rem 1.25rem 1rem;
   }
 }
 
