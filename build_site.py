@@ -2,7 +2,18 @@
 """Bake the Rockstar Health Shopify theme into a standalone static site for
 GitHub Pages. Extracts each page's custom-liquid HTML, rebuilds the hero,
 header nav and footer, and rewrites all Shopify links/asset URLs to relative
-static paths. Output HTML is fully self-contained (no Shopify dependency)."""
+static paths. Output HTML is fully self-contained (no Shopify dependency).
+
+WARNING: this was the ONE-TIME migration bake. The .html files are the source
+of truth now and have been hand-edited since (content de-duplication, etc.).
+Re-running this regenerates pages from the OLD Shopify theme and WILL overwrite
+those edits. Do not run it again unless you intend to start the content over."""
+import sys
+if __name__ == "__main__" and "--force" not in sys.argv:
+    raise SystemExit(
+        "Refusing to run: this would overwrite the hand-edited .html files.\n"
+        "The site is maintained by editing the .html files directly.\n"
+        "Pass --force only if you really want to regenerate from the old theme.")
 import json, os, re
 
 THEME = os.path.expanduser("~/Desktop/Apps/rockstar-health-theme")
