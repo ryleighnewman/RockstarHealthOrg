@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Custom Order | Rockstar Health</title>
+<meta name="description" content="Request a custom mobility accessory.">
+<meta property="og:title" content="Custom Order | Rockstar Health">
+<meta property="og:description" content="Request a custom mobility accessory.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/rockstar-logo.png">
+<link rel="stylesheet" href="assets/rockstar-glass.css">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<header class="site-header"><div class="site-header__pill"><a class="brand" href="index.html"><img src="assets/rockstar-logo.png" alt="Rockstar Health"></a><nav class="nav" aria-label="Primary"><a href="index.html">Home</a><a href="about.html">About</a><a href="our-products.html">Our Products</a><a href="financial-structure.html">Financial Structure</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></nav></div></header>
+
+<main><div class="page-width page-body">
+<section class="rh-page-hero">
+  <div class="rh-page-hero__eyebrow">Shop</div>
+  <h1 class="rh-page-hero__heading">Custom Order</h1>
+  <p class="rh-page-hero__lede">Need something specific? Describe your request and we'll follow up with pricing, availability, and next steps.</p>
+</section>
+<section class="rh-section rh-custom-order">
+  <h2 class="rh-section__title">Request Details</h2>
+  <form class="rh-co-form" id="rh-co-form">
+    <div class="rh-co-grid">
+      <div class="rh-co-field"><label class="rh-co-label" for="co-name">Full name <span class="rh-co-req">*</span></label>
+        <input class="rh-co-input" id="co-name" type="text" name="name" required placeholder="Your full name"></div>
+      <div class="rh-co-field"><label class="rh-co-label" for="co-email">Email <span class="rh-co-req">*</span></label>
+        <input class="rh-co-input" id="co-email" type="email" name="email" required placeholder="you@example.com"></div>
+      <div class="rh-co-field"><label class="rh-co-label" for="co-phone">Phone <span class="rh-co-opt">(optional)</span></label>
+        <input class="rh-co-input" id="co-phone" type="tel" name="phone" placeholder="+1 (000) 000-0000"></div>
+      <div class="rh-co-field"><label class="rh-co-label" for="co-type">What are you looking for?</label>
+        <select class="rh-co-input" id="co-type" name="product_type">
+          <option value="">Select a category</option><option>Joystick cover</option><option>Joystick topper</option>
+          <option>Seating accessory</option><option>Desk accessory</option><option>Other accessory</option><option>General inquiry</option>
+        </select></div>
+      <div class="rh-co-field"><label class="rh-co-label" for="co-model">Wheelchair or equipment model</label>
+        <input class="rh-co-input" id="co-model" type="text" name="equipment_model" placeholder="e.g. Permobil M3, Quantum Q6 Edge, Invacare TDX"></div>
+      <div class="rh-co-field rh-co-field--wide"><label class="rh-co-label" for="co-body">Description <span class="rh-co-req">*</span></label>
+        <textarea class="rh-co-input" id="co-body" name="message" rows="5" required placeholder="Describe what you need. Include measurements, material preferences, colors, mounting requirements, or anything else relevant."></textarea></div>
+      <div class="rh-co-field"><label class="rh-co-label" for="co-budget">Budget range</label>
+        <select class="rh-co-input" id="co-budget" name="budget_range">
+          <option value="">Select a range</option><option>Under $50</option><option>$50 to $150</option><option>$150 to $500</option><option>Over $500</option><option>Not sure</option>
+        </select></div>
+      <div class="rh-co-field"><label class="rh-co-label" for="co-timeline">Timeline</label>
+        <select class="rh-co-input" id="co-timeline" name="timeline">
+          <option value="">Select a timeline</option><option>As soon as possible</option><option>2 to 4 weeks</option><option>1 to 3 months</option><option>Flexible</option>
+        </select></div>
+    </div>
+    <p class="rh-prose" style="font-size:.95rem;margin-top:1.25rem;">To include a reference file, email it to <a href="mailto:support@rockstarhealth.org">support@rockstarhealth.org</a> with your name in the subject line.</p>
+    <label class="rh-co-label" style="display:flex;gap:.6rem;align-items:flex-start;margin:1rem 0;font-weight:300;">
+      <input type="checkbox" name="pricing_consent" required style="width:auto;margin-top:.3rem;"> I understand pricing is provided per request and confirmed before any work begins.</label>
+    <div class="rh-cta-group rh-cta-group--row"><button type="submit" class="button button-primary">Send request</button></div>
+  </form>
+</section>
+<script>
+document.getElementById('rh-co-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  var f = e.target, g = function(n){ var el = f.elements[n]; return el ? el.value.trim() : ''; };
+  var lines = [
+    'Name: '     + g('name'),
+    'Email: '    + g('email'),
+    'Phone: '    + g('phone'),
+    'Category: ' + g('product_type'),
+    'Equipment: '+ g('equipment_model'),
+    'Budget: '   + g('budget_range'),
+    'Timeline: ' + g('timeline'),
+    '',
+    'Details:',
+    g('message')
+  ];
+  var subject = 'Custom order request' + (g('name') ? ' from ' + g('name') : '');
+  window.location.href = 'mailto:support@rockstarhealth.org'
+    + '?subject=' + encodeURIComponent(subject)
+    + '&body=' + encodeURIComponent(lines.join('\n'));
+});
+</script>
+</div></main>
+<footer class="site-footer"><div class="page-width"><nav class="rh-footer-links" aria-label="Site links"><div class="rh-footer-links__col"><h3 class="rh-footer-links__title">Company</h3><ul class="rh-footer-links__list"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="financial-structure.html">Financial Structure</a></li></ul></div><div class="rh-footer-links__col"><h3 class="rh-footer-links__title">Shop</h3><ul class="rh-footer-links__list"><li><a href="our-products.html">Our Products</a></li><li><a href="storefronts.html">Storefronts</a></li><li><a href="custom-order.html">Custom Order</a></li></ul></div><div class="rh-footer-links__col"><h3 class="rh-footer-links__title">Support</h3><ul class="rh-footer-links__list"><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li></ul></div><div style="grid-column:1/-1;border-top:1px solid rgba(255,255,255,.10);margin-top:1.25rem;padding-top:1.15rem;text-align:center;font-size:.78rem;letter-spacing:.02em;color:rgb(150,160,170)">© 2026 Rockstar Health</div></nav></div></footer>
+</body>
+</html>
