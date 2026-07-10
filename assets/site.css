@@ -32,14 +32,15 @@ h5{ font-size: .875rem; }
 h6{ font-size: .75rem; }
 
 /* ---------------- Header (floating glass pill) ----------------
-   Faithful static rebuild of the Horizon header-component pill: 56px tall,
-   centered logo, left nav, 22px radius, glass border + backdrop blur. */
+   ryleighnewman.github.io signature pattern: logo LEFT, nav links RIGHT
+   (space-between), pill capped at 1000px / calc(100% - 80px), 22px radius,
+   glass border + backdrop blur. Mobile: burger right, right-aligned menu. */
 .site-header{ position: sticky; top: 0; z-index: 1000;
   padding: 0 clamp(10px, 3vw, 22px); }
-.rh-header__pill{ position: relative; margin: 8px auto 0; width: 100%;
-  max-width: var(--page-width); min-height: 56px;
-  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px;
-  padding-inline: 16px;
+.rh-header__pill{ position: relative; margin: 8px auto 0;
+  width: calc(100% - 80px); max-width: 1000px; min-height: 56px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding-inline: 18px;
   border-radius: var(--lg-radius, 22px);
   border: 1px solid rgb(255 255 255 / 0.18);
   background-color: rgb(var(--rh-bg-deep) / 0.30);
@@ -51,33 +52,33 @@ h6{ font-size: .75rem; }
     inset 0 0 0 .5px hsl(0 0% 100% / .08),
     var(--rh-shadow-header, 0 4px 14px rgb(0 0 0 / .35)); }
 
-.rh-header__left{ display: flex; align-items: center; min-width: 0; }
-.rh-nav{ display: flex; flex-wrap: wrap; align-items: center; gap: 6px 20px; }
-.rh-nav a{ color: rgb(var(--rh-text)); text-decoration: none; font-size: .98rem; font-weight: 300;
-  letter-spacing: .01em; opacity: .82; padding: 4px 2px; white-space: nowrap;
-  transition: color .2s ease, opacity .2s ease; }
-.rh-nav a:hover{ color: #fff; opacity: 1; }
-.rh-nav a[aria-current="page"]{ color: #fff; opacity: 1; }
+.rh-header__brand{ display: inline-flex; align-items: center; flex-shrink: 0; }
+.rh-header__brand img{ height: 32px; width: auto; display: block; }
 
-.rh-header__brand{ display: inline-flex; align-items: center; justify-self: center; }
-.rh-header__brand img{ height: 30px; width: auto; display: block; }
+.rh-nav{ display: flex; align-items: center; gap: 25px; margin-left: auto; }
+.rh-nav a{ color: #fff; text-decoration: none; font-size: .95rem; font-weight: 300;
+  letter-spacing: .01em; padding: 4px 0; white-space: nowrap;
+  transition: color .3s ease; }
+.rh-nav a:hover{ color: rgb(var(--rh-accent-soft)); }
+.rh-nav a[aria-current="page"]{ color: rgb(var(--rh-accent-soft)); }
 
 .rh-nav__cb, .rh-burger{ display: none; }
 
-@media (max-width: 760px){
-  .rh-burger{ display: inline-flex; flex-direction: column; justify-content: center; gap: 4px;
-    width: 34px; height: 34px; cursor: pointer; }
+@media (max-width: 860px){
+  .rh-header__pill{ width: calc(100% - 8px); }
+  .rh-burger{ display: inline-flex; flex-direction: column; justify-content: center;
+    align-items: flex-end; gap: 4px; width: 34px; height: 34px; cursor: pointer; flex-shrink: 0; }
   .rh-burger span{ display: block; height: 2px; width: 20px; background: rgb(var(--rh-text)); border-radius: 2px; }
-  .rh-nav{ display: none; position: absolute; top: calc(100% + 8px); left: 0; right: 0;
-    flex-direction: column; align-items: stretch; gap: 2px; padding: 10px;
+  .rh-nav{ display: none; position: absolute; top: calc(100% + 8px); right: 0;
+    left: auto; width: min(300px, 100%);
+    flex-direction: column; align-items: flex-end; gap: 2px; padding: 14px 18px;
     border-radius: var(--lg-radius-inner, 12px);
     border: 1px solid rgb(255 255 255 / 0.14);
     background: rgb(var(--rh-bg-deep) / .94);
     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
     box-shadow: var(--rh-shadow-card, 0 10px 30px rgb(0 0 0 / .45)); }
-  .rh-nav a{ padding: 10px 12px; font-size: 1rem; opacity: .9; border-radius: 8px; white-space: normal; }
-  .rh-nav a:hover{ background: rgb(255 255 255 / .06); }
-  .rh-nav__cb:checked ~ .rh-header__left .rh-nav{ display: flex; }
+  .rh-nav a{ padding: 10px 0; font-size: 1.1rem; text-align: right; width: 100%; }
+  .rh-nav__cb:checked ~ .rh-nav{ display: flex; }
 }
 
 /* ---------------- Home hero ---------------- */
