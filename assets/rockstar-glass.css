@@ -2263,7 +2263,7 @@ h3.rh-section__title {
    ============================================================================ */
 /* Wider section so the product grid has room to breathe (default is 800px) */
 .rh-section--wide {
-  max-width: 1140px !important;
+  max-width: 1000px !important;   /* never wider than the header pill */
 }
 
 .rh-products {
@@ -2682,8 +2682,8 @@ button.button,
   font-weight: 300;
   line-height: 1.5;
   color: rgb(var(--rh-text)) !important;
-  background: rgb(255 255 255 / 0.06) !important;
-  border: 1px solid rgb(255 255 255 / 0.16) !important;
+  background-color: rgb(var(--rh-bg-deep) / 0.5) !important; /* match global input standard */
+  border: 1px solid rgb(255 255 255 / 0.18) !important;
   border-radius: var(--lg-radius-inner) !important;
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
@@ -3213,11 +3213,6 @@ a[href*="shopify.com"][aria-label="Shopify"] {
 }
 .rh-footer-links__list a:hover {
   color: rgb(var(--rh-accent-soft)) !important;
-}
-/* Copyright row (inline-styled div): tighten its spacing so the footer stays compact */
-.rh-footer-links > div:last-child {
-  margin-top: 0.7rem !important;
-  padding-top: 0.8rem !important;
 }
 @media (max-width: 600px) {
   .rh-footer-links {

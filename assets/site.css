@@ -8,7 +8,7 @@
   --md-radius: 14px;
   --padding-md: 20px;
   --padding-xl: 46px;
-  --page-width: 1180px;
+  --page-width: 1000px;   /* matches the header pill: one consistent lineup */
 }
 
 *{ box-sizing: border-box; }
@@ -97,7 +97,23 @@ h6{ font-size: .75rem; }
 .page-body > .rh-section:first-child,
 .page-body > .rh-page-hero:first-child{ margin-top: 0; }
 
-/* ---------------- Footer ---------------- */
+/* ---------------- Footer ----------------
+   ryleighnewman.github.io standard: slim one-line glass strip, top-only
+   radius, flush to the bottom of the page. */
 .site-footer{ flex-shrink: 0; margin-top: clamp(32px, 4vw, 56px);
-  padding: 0 clamp(12px, 4vw, 28px) 20px; }
-.site-footer .page-width{ padding-inline: 0; }
+  padding: 0 clamp(12px, 4vw, 28px); display: flex; justify-content: center; }
+.rh-footer{ width: 100%; max-width: var(--page-width); margin: 0 auto;
+  min-height: 24px; padding: 4px 14px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgb(255 255 255 / 0.05);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgb(255 255 255 / 0.18);
+  border-left: 1px solid rgb(255 255 255 / 0.12);
+  border-right: 1px solid rgb(255 255 255 / 0.12);
+  border-bottom: none;
+  border-radius: var(--lg-radius) var(--lg-radius) 0 0;
+  box-shadow: 0 -3px 14px rgb(0 0 0 / 0.45);
+  color: #dddddd; font-size: 0.8rem; line-height: 1.2; text-align: center; }
+.rh-footer p{ margin: 0; font-size: 0.8rem; color: #dddddd; }
+.rh-footer a{ color: #dddddd; text-decoration: none; transition: color .3s ease; }
+.rh-footer a:hover{ color: rgb(var(--rh-accent-soft)); }
