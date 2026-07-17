@@ -159,3 +159,8 @@ h6{ font-size: .75rem; }
 
 .rh-coming-soon{ text-align: center; opacity: .75; font-weight: 300;
   margin: 18px 0 0; }
+
+/* ---------------- 1.12 ----------------
+   FAQ questions rendered at weight 400 (the Semilight face), which read as the
+   wrong font next to the site's 300 Light standard. */
+.rh-faq summary{ font-family: var(--rh-font) !important; font-weight: 300; }
