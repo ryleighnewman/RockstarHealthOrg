@@ -137,3 +137,25 @@ h6{ font-size: .75rem; }
 .rh-pdp__buy .button{ width: 240px; display: inline-flex; align-items: center;
   justify-content: center; gap: 10px; }
 .rh-pdp__buy .button svg{ width: 20px; height: 20px; flex: none; }
+
+/* ---------------- 1.11 polish ----------------
+   Uniform NARROWER boxes: every section (incl. --wide) shares the 800px card
+   standard; 1000px read as too wide. */
+.rh-section{ max-width: 800px; }
+.rh-section--wide{ max-width: 800px !important; }
+
+/* hero: headline top-center, CTA row pinned to the BOTTOM of the image, toppers
+   in the middle band; hero may shrink further without cropping the product */
+.rh-hero{ min-height: clamp(320px, 52vh, 560px); align-items: stretch; }
+.rh-hero__inner{ display: flex; flex-direction: column; align-items: center;
+  padding-block: 40px 26px; }
+.rh-hero__sub{ margin-bottom: 0; }
+.rh-hero__ctas{ margin-top: auto; padding-top: 24px;
+  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+/* slimmer, shorter hero buttons (the 15px/22px-radius base reads too fat here) */
+.rh-hero__ctas .button{ width: auto !important; max-width: none !important;
+  padding: 9px 22px !important; font-size: 1.02rem !important;
+  border-radius: 14px !important; }
+
+.rh-coming-soon{ text-align: center; opacity: .75; font-weight: 300;
+  margin: 18px 0 0; }
