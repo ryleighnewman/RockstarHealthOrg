@@ -117,3 +117,23 @@ h6{ font-size: .75rem; }
 .rh-footer p{ margin: 0; font-size: 0.8rem; color: #dddddd; }
 .rh-footer a{ color: #dddddd; text-decoration: none; transition: color .3s ease; }
 .rh-footer a:hover{ color: rgb(var(--rh-accent-soft)); }
+
+/* ---------------- 1.10 polish ----------------
+   Hero content centered at the TOP (banner toppers now sit in the lower band);
+   overlay flipped to darken the top for the headline instead of the bottom. */
+.rh-hero{ align-items: flex-start; }
+.rh-hero::after{ background: linear-gradient(to bottom, rgb(12 14 18 / .68) 0%, rgb(12 14 18 / .18) 100%); }
+.rh-hero__inner{ display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; }
+.rh-hero__title{ max-width: 22ch; margin: 0 auto 12px; }
+.rh-hero__sub{ color: #fff; opacity: .92; font-weight: 300;
+  font-size: clamp(1.05rem, 2.6vw, 1.4rem); margin: 0 0 26px; }
+
+/* every section box shares ONE width (matches .rh-section--wide / the header pill) */
+.rh-section{ max-width: 1000px; }
+
+/* PDP purchase area: centered lede + centered uniform buttons with marketplace marks */
+.rh-pdp__buy-lede{ margin: 14px 0 2px; text-align: center; font-weight: 300; }
+.rh-pdp__buy{ align-items: center; }
+.rh-pdp__buy .button{ width: 240px; display: inline-flex; align-items: center;
+  justify-content: center; gap: 10px; }
+.rh-pdp__buy .button svg{ width: 20px; height: 20px; flex: none; }
