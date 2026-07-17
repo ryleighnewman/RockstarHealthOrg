@@ -164,3 +164,15 @@ h6{ font-size: .75rem; }
    FAQ questions rendered at weight 400 (the Semilight face), which read as the
    wrong font next to the site's 300 Light standard. */
 .rh-faq summary{ font-family: var(--rh-font) !important; font-weight: 300; }
+
+/* ---------------- 1.13 ----------------
+   Marketplace buttons are logo-only; viewBoxes are ink-cropped so every mark
+   renders at the same visual height (the eBay wordmark was tiny inside FA's
+   padded 512 box). */
+.rh-pdp__buy .button svg{ height: 24px; width: auto; display: block; margin: 0 auto; }
+.rh-marketplaces__icon{ height: 26px !important; width: auto !important; }
+
+/* FAQ accordion: animated open (body fades/slides in, the + rotates smoothly) */
+.rh-faq summary::after{ transition: transform .25s ease; }
+@keyframes rhFaqOpen{ from{ opacity: 0; transform: translateY(-6px); } to{ opacity: 1; transform: none; } }
+.rh-faq[open] .rh-faq__body{ animation: rhFaqOpen .28s ease; }
